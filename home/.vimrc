@@ -291,9 +291,6 @@ nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-"map // <Plug>(incsearch-easymotion-/)
-"map /? <Plug>(incsearch-easymotion-?)
-"map /g/ <Plug>(incsearch-easymotion-stay)
 
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
@@ -320,9 +317,6 @@ set sidescroll=1
 set sidescrolloff=10
 
 set virtualedit+=block
-
-" I map tab to an extra control key - so this isn't really needed
-" map <tab> %
 
 " Mappings
 inoremap jj <esc>
@@ -361,17 +355,7 @@ inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-
 autocmd filetype yaml,yml setlocal expandtab " No tabs in YAML files please.
-
-" if exists(":Tabularize")
-"     nmap <Leader>a= :Tabularize /=<cr>
-"     vmap <Leader>a= :Tabularize /=<cr>
-"     nmap <Leader>a> :Tabularize /=><cr>
-"     vmap <Leader>a> :Tabularize /=><cr>
-"	nmap <Leader>a: :Tabularize /:\zs<cr>
-"	vmap <Leader>a: :Tabularize /:\zs<cr>
-" endif
 
 
 " Whitespace -----------------------------------------------------------------------------------------------------------
@@ -439,152 +423,6 @@ nnoremap <c-l> <c-w>l
 " Add super-easy vim split navigation - simply cycle through by pressing enter in normal mode!
 nnoremap <cr>  <c-w>w
 autocmd Filetype nerdtree nmap <buffer> <cr> <c-w>w
-
-
-
-" " Allow searching php.net (and other online knowledgebases) for the
-" " definition of the word under the cursor.
-" function! OnlineDoc()
-"   if &ft =~ "cpp"
-"     let urlTemplate = "http://doc.trolltech.com/4.1/%.html"
-"   elseif &ft =~ "ruby"
-"     let urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
-"   elseif &ft =~ "php"
-"     let urlTemplate = "http://www.php.net/%"
-"   elseif &ft =~ "module"
-"     let urlTemplate = "http://www.php.net/%"
-"   elseif &ft =~ "css"
-"     let urlTemplate = "http://cssreference.io/property/%/"
-"   elseif &ft =~ "htm"
-"     let urlTemplate = "http://htmlreference.io/element/%/"
-"   elseif &ft =~ "html"
-"     let urlTemplate = "http://htmlreference.io/element/%/"
-"   elseif &ft =~ "perl"
-"     let urlTemplate = "http://perldoc.perl.org/functions/%.html"
-"   else
-"     return
-"   endif
-"   let browser = "/usr/bin/chromium-browser"
-"   let wordUnderCursor = expand("<cword>")
-"   let url = substitute(urlTemplate, "%", wordUnderCursor, "g")
-"   let cmd = "silent !" . browser . " --incognito " . url
-"   execute cmd
-"   redraw!
-" endfunction
-
-" map <f1> :call OnlineDoc()<cr>
-
-"" Setup VDebug options...
-"let g:vdebug_features = { 'max_children': 128 }
-"let g:vdebug_options = { 'on_close': 'stop',
-""\ 'watch_window_style': 'compact',
-"\ 'break_on_open': 0
-""\ }
-"let g:vdebug_options['break_on_open'] = 0
-
-"" Easymotion plugin config
-"let g:EasyMotion_keys = '123456789abcdefghijkmnopqrstuvwxyz'
-"let g:EasyMotion_do_shade = 0
-
-" " Setup signify
-" let g:signify_vcs_list = [ 'git' ]
-
-" " Setup delimitMate
-" let g:delimitMate_expand_cr = 1
-
-"" Setup UltiSnips
-"
-"" declare global configuration dictionary so that config options can be added:
-"let g:UltiSnips = {}
-"
-"" customize mappings, eg use snipmate like behaviour
-"let g:UltiSnips.ExpandTrigger = "<leader><leader>"
-"" " It does make sense to not use <tab> here, use UltiSnips default <c-j>
-"let g:UltiSnips.JumpForwardTrigger = "<tab><tab>"
-"let g:UltiSnips.JumpBackwardTrigger = "<s-tab>"
-
-" Now its time to tell UltiSnips about which snippets to load.
-" You do so for snipmate snippets and UltiSnips snippets individually.
-" This example illustrates a setup loading snipmate snippets.
-
-" See plugin/UltiSnips.vim, it has much additional documentation.
-" Assuming you're not overrding the default implemenation in the
-" VimL function SnippetFilesForCurrentExpansionDefaultImplementation.
-
-" == UltiSnips snippets ==
-" Because I want to use the snipmate snippets 'default' does not load
-" filetype.snippets snippet files.
-" SirVer called the snippets to be present for all filetypes "all".
-" So this fork follows his convention. Compare with _ which is used by
-" snipmate but means the same.
-"
-" Now the default implementation reads &filetype, looks up the key in the
-" dictionary and falls back to the default entry if there is no filetype
-" specific entry.
-"
-" Thus if you're editing a cpp file ['cpp'] means that
-" &rtp/UltiSnips/cpp.snippets and ..../all.snippets will be loaded if
-" UltiSnips directory happens to be in your [._].vim directory only.
-"
-" For all other filetypes 'default' applies, which loads all.snippets
-" from all &rtp/UltiSnips directories.
-"let g:UltiSnips.UltiSnips_ft_filter = {
-"            \ 'default' : {'filetypes': ['all'] },
-"            \ 'all' : {'filetypes': ['all'] },
-"            \ 'cpp' : {'filetypes': ['cpp', 'all'], 'dir-regex': '[._]vim/UltiSnips$' },
-"            \ 'php' : {'filetypes': ['php', 'all'], 'dir-regex': '[._]vim/UltiSnips$' },
-"            \ 'module' : {'filetypes': ['php', 'all'], 'dir-regex': '[._]vim/UltiSnips$' },
-"            \ }
-"" In the 'default' case the special word FILETYPE will be replaced by
-"" &filetype, thus ['all','FILETYPE'] will load &rtp/html.snippets if
-"" you're editing html files.
-"
-"" choices could be nasty, never show them
-"let g:UltiSnips.always_use_first_snippet = 1
-"
-"" == snipmate snippets ==
-"" _.snippets are meant to be snippets to be loaded always which is why
-"" they are contained in all cases
-"" This is pretty much the same as above:
-"" * For html, xhtml snipmate &rtp/snippets/javascript snippets get loaded
-"" * For cpp don't load any snipmate &rtp/snippets - because in this
-""   example UltiSnips snippets are preferred
-"let g:UltiSnips.snipmate_ft_filter = {
-"            \ 'default' : {'filetypes': ["FILETYPE", "_"] },
-"            \ 'html'    : {'filetypes': ["html", "javascript", "_"] },
-"            \ 'xhtml'    : {'filetypes': ["xhtml", "html", "javascript", "_"] },
-"            \ 'cpp'    : {'filetypes': [] },
-"            \ }
-
-"set runtimepath+=~/.vim/bundle/ultisnips
-"" set runtimepath+=~/.vim/bundle/vim-snippets
-"" let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "~/.vim/snippets"]
-
-
-" " Setup for Vim-airline statusbar plugin
-" "
-" " airline_powerline_fomts=1 is needed to allow seamless section melding
-" let g:airline_powerline_fonts=1
-" " airline_thme='<theme name>' selects one of the installed themes
-" let g:airline_theme='badwolf'
-
-"" Start NERDTree when vim starts and no file has been specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * nested if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"" Changing directory in NT changes vim's working directory
-"" let NERDTreeChDirMode=2
-
-"" Show hidden files by default
-"let NERDTreeShowHidden=1
-
-"" Quickly show NT with leader-d
-"map <leader>d :NERDTreeToggle<cr>
-
-"" Setup EditorConfig options...
-"let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-"let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
-
 
 
 
