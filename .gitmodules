@@ -25,3 +25,15 @@
 [submodule "home/.vim/bundle/editorconfig-vim"]
 	path = home/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "home/.vim/bundle/emmet-vim"]
+	path = home/.vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim
+[submodule "home/.vim/bundle/vim-signify"]
+	path = home/.vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify
+[submodule "home/.vim/bundle/vim-togglecursor"]
+	path = home/.vim/bundle/vim-togglecursor
+	url = https://github.com/jszakmeister/vim-togglecursor
+[submodule "home/.vim/bundle/vim-multiple-cursors"]
+	path = home/.vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
