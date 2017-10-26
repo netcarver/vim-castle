@@ -37,3 +37,42 @@
 [submodule "home/.vim/bundle/vim-multiple-cursors"]
 	path = home/.vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "home/.vim/bundle/vim-tmux-navigator"]
+	path = home/.vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "home/.vim/bundle/vim-obsession"]
+	path = home/.vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule "home/.vim/bundle/vim-exchange"]
+	path = home/.vim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+	path = home/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "home/.vim/bundle/vim-airline-themes"]
+	path = home/.vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "home/.vim/bundle/vim-airline"]
+	path = home/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "home/.vim/bundle/vdebug"]
+	path = home/.vim/bundle/vdebug
+	url = https://github.com/joonty/vdebug
+[submodule "home/.vim/bundle/tmuxline.vim"]
+	path = home/.vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
+[submodule "home/.vim/bundle/tmux.vim"]
+	path = home/.vim/bundle/tmux.vim
+	url = https://github.com/Keithbsmiley/tmux.vim
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "home/.vim/bundle/nerdtree-git-plugin"]
+	path = home/.vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "home/.vim/bundle/incsearch-easymotion.vim"]
+	path = home/.vim/bundle/incsearch-easymotion.vim
+	url = https://github.com/haya14busa/incsearch-easymotion.vim
+[submodule "home/.vim/bundle/delimitMate"]
+	path = home/.vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
