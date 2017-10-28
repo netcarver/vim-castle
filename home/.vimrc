@@ -424,11 +424,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <cr>  <c-w>w
 autocmd Filetype nerdtree nmap <buffer> <cr> <c-w>w
 
-" Setup Syntastic plugin options ---------------------------------------------------------------------------------------
-
-" Only lint PHP files within the editor.
-let g:syntastic_php_checkers = ['php']
-
 " Custom Configuration Inclusion ---------------------------------------------------------------------------------------
 "
 " All custom config settings are stored in the .vim/config folder to
