@@ -136,6 +136,7 @@ set copyindent     " copy the previous indentation on autoindenting
 set smarttab       " insert tabs on the start of a line according to
                    "    shiftwidth, not tabstop
 
+au BufRead,BufNewFile *.php set filetype=php
 au BufRead,BufNewFile *.tpl set filetype=php
 au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.info set filetype=php
@@ -175,7 +176,6 @@ colorscheme solarized
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
 
 
 
@@ -424,7 +424,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <cr>  <c-w>w
 autocmd Filetype nerdtree nmap <buffer> <cr> <c-w>w
 
+" Setup Syntastic plugin options ---------------------------------------------------------------------------------------
 
+" Only lint PHP files within the editor.
+let g:syntastic_php_checkers = ['php']
 
 " Custom Configuration Inclusion ---------------------------------------------------------------------------------------
 "
