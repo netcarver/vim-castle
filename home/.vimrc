@@ -193,11 +193,6 @@ function! MakeSpacelessBufferIabbrev(from, to)
     execute "iabbrev <silent> <buffer> ".a:from." ".a:to."<C-R>=EatChar('\\s')<cr>"
 endfunction
 
-" TODO Extend as needed
-call MakeSpacelessIabbrev('gh/',  'http://github.com/')
-call MakeSpacelessIabbrev('ghn/', 'http://github.com/netcarver/')
-call MakeSpacelessIabbrev('me/',  'Netcarver')
-
 " A few shortcuts PHP stuff: helps make snipmate snippets more useable.
 call MakeSpacelessIabbrev('t',  '$this->')
 
@@ -242,10 +237,6 @@ nnoremap Vaa ggVG
 " if you do you'll probably want to use another mark.
 inoremap <C-u> <esc>mzgUiw`za
 nnoremap <C-u> gUiw
-
-" Formatting, TextMate-style
-" nnoremap Q gqip
-" vnoremap Q gq
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
