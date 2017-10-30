@@ -126,7 +126,6 @@ augroup END
 
 
 " Tabs, spaces, wrapping
-
 set tabstop=4      " a tab is how many spaces?
 set shiftwidth=4   " number of spaces to use for autoindenting
 set softtabstop=4
@@ -346,7 +345,6 @@ inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-autocmd filetype yaml,yml setlocal expandtab " No tabs in YAML files please.
 
 
 " Whitespace -----------------------------------------------------------------------------------------------------------
@@ -374,6 +372,7 @@ endfunction
 
 if has("autocmd")
   autocmd FileType inc,info,tpl,module,css,scss,js,php,html,md,textile,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+  autocmd FileType yaml,yml setlocal expandtab " No tabs in YAML files please.
   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -414,6 +413,31 @@ nnoremap <c-l> <c-w>l
 " Add super-easy vim split navigation - simply cycle through by pressing enter in normal mode!
 nnoremap <cr>  <c-w>w
 autocmd Filetype nerdtree nmap <buffer> <cr> <c-w>w
+
+
+"
+" Filetype utility routines --------------------------------------------------------------------------------------------
+
+
+" Turn on wrapping and spelling for file
+function! s:setWrapping()
+    setlocal wrap linebreak nolist spell
+endfunction
+
+
+if !exists("autocommands_loaded")
+  let autocommands_loaded = 1
+
+  " Reload .vimrc after save
+  au! BufWritePost .vimrc source %
+
+  " Filetype settings on load
+  au BufRead,BufNewFile *.m*down set filetype=markdown
+  au BufRead,BufNewFile *.json set filetype=json
+
+  au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mkd call s:setWrapping()
+endif
+
 
 " Custom Configuration Inclusion ---------------------------------------------------------------------------------------
 "
