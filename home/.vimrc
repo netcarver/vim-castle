@@ -383,18 +383,18 @@ endif
 " Shortcut to Taglist...
 nnoremap <leader>z :TlistToggle<cr>
 
-" Text bubbling uses unimpaired but I've had to disable
-" unimpaired's mapping of all its 'firsts' to get the
-" c-up and c-down keys working
-" Bubble single lines...
-nmap [B ]e
-nmap [A [e
-" Bubble multiple lines...
-" vmap [A [egv
-" vmap [B ]egv
+
+" Text bubbling uses unimpaired
+"
 " Bubble characters left or right (transpose)...
-nmap [D x2hp
-nmap [C xp
+nmap <c-left> x2hp
+nmap <c-right> xp
+" Bubble single lines up and down...
+nmap <c-up> [e
+nmap <c-down> ]e
+" Bubble multiple lines up and down...
+vmap <c-up> [egv
+vmap <c-down> ]egv
 
 vnoremap . :normal .<cr>
 
